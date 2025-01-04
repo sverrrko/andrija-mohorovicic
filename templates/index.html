@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pričaj s Andrijom Mohorovičićem</title>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+    <h1>Dobrodošli u razgovor s Andrijem Mohorovičićem!</h1>
+    <div class="content">
+        <form method="POST">
+            <label for="user_input">Postavite pitanje:</label><br>
+            <input type="text" id="user_input" name="user_input" required><br><br>
+            <input type="submit" value="Pošaljite">
+        </form>
+        <img id="andrija_image" src="images/am.png" alt="Andrija Mohorovičić">
+    </div>
+    <div>
+        <h3>Odgovor:</h3>
+        <p>{{response}}</p>
+    </div>
+    <footer>
+        <p>&copy; 2025 Pričaj s Andrijom Mohorovičićem</p>
+    </footer>
+</body>
+</html>

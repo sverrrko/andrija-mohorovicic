@@ -1,0 +1,67 @@
+body {
+    font-family: Georgia, serif;
+    background-color: #4a67a4;
+    color: white;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+}
+
+h1 {
+    font-size: 2.5em;
+    margin-top: 20px;
+}
+
+.content {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    align-items: center;
+    flex-direction: row;
+    margin-top: 20px;
+}
+
+#andrija_image {
+    width: 200px;
+    height: auto;
+    margin-left: 20px;
+}
+
+form {
+    margin-top: 30px;
+    text-align: left;
+}
+
+input[type="text"] {
+    padding: 10px;
+    font-size: 1em;
+    color: black;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+input[type="submit"] {
+    padding: 10px 20px;
+    background-color: #1e2d4d;
+    border: none;
+    color: white;
+    font-size: 1.1em;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #172233;
+}
+
+footer {
+    margin-top: 50px;
+    font-size: 0.9em;
+    color: #bbb;
+}
