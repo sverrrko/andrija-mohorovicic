@@ -1,7 +1,13 @@
 from flask import Flask, render_template, request
+from waitress import serve
 
 app = Flask(__name__)
 
+if __name__ == '__main__':
+    serve(app, host="0.0.0.0", port=10000)
+
+import os
+port = int(os.environ.get("PORT", 10000)) 
 
 def get_response(user_input):
     user_input = user_input.lower()
@@ -84,4 +90,5 @@ def home():
         response = get_response(user_input)
         print(response)
     return render_template('index.html', response=response)
+
 
