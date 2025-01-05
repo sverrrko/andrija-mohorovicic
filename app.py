@@ -85,5 +85,3 @@ def home():
         print(response)
     return render_template('index.html', response=response)
 
-if __name__ == '__main__':
-    app.run(debug=True)
