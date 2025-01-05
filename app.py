@@ -42,7 +42,7 @@ def get_response(user_input):
     elif "duhan" in user_input:
         return "Moj najveći porok bio je duhan, kojeg nikad nisam prestao pušiti."
     
-    elif "smrt" or "kada si umro" or "18. prosinca 1936." in user_input:
+    elif "smrt" in user_input or "kada si umro" or "18. prosinca 1936." in user_input:
         return "Moj se život okončao 18. prosinca 1936. godine, a taj dan bio je petak, kao što sam uvijek govorio da se važne stvari događaju petkom."
     
     elif "knjizevnici suvremenici" in user_input:
