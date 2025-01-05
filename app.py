@@ -3,12 +3,11 @@ from waitress import serve
 
 app = Flask(__name__)
 
-import os
-port = int(os.environ.get("PORT", 10000)) 
-
 if __name__ == '__main__':
-    serve(app, host='0.0.0.0', port=port)
-    
+    serve(app, host='0.0.0.0', port=1000)
+
+def get_response(user_input):
+    user_input = user_input.lower()
     
     if "tko je andrija mohorovičić" in user_input or "andrija mohorovičić" in user_input:
         return "To sam ja! Bio sam hrvatski seizmolog, najpoznatiji po otkriću Mohorovičićeve diskontinuiteta. "
@@ -84,7 +83,6 @@ def home():
     response = ''
     if request.method == 'POST':
         user_input = request.form['user_input']
-        print(user_input)
         response = get_response(user_input)
         print(response)
     return render_template('index.html', response=response)
