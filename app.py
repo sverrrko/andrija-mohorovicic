@@ -4,7 +4,7 @@ from waitress import serve
 app = Flask(__name__)
 
 if __name__ == '__main__':
-    app.run(debug=True, host='127.0.0.1', port=10000)
+    serve(app, host='0.0.0.0', port=10000)
     
     if "tko je andrija mohorovičić" in user_input or "andrija mohorovičić" in user_input:
         return "To sam ja! Bio sam hrvatski seizmolog, najpoznatiji po otkriću Mohorovičićeve diskontinuiteta. "
