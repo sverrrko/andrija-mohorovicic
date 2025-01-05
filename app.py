@@ -2,7 +2,7 @@ from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
-# Define the chatbot's responses
+
 def get_response(user_input):
     user_input = user_input.lower()
     
