@@ -17,9 +17,9 @@ def generate_response(query):
             return response['candidates'][0]['content']
         else:
             return "No valid response received."
-    except Exception as e:
-        print(f"Error generating response: {e}")
-        return "Došlo je do pogreške prilikom generiranja odgovora."
+#    except Exception as e:
+ #       print(f"Error generating response: {e}")
+  #      return "Došlo je do pogreške prilikom generiranja odgovora."
 
 
 @app.route("/", methods=["GET", "POST"])
