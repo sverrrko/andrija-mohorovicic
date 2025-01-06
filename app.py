@@ -6,7 +6,6 @@ import palm
 
 app = Flask(__name__)
 
-# Configure Gemini API
 palm.configure(api_key='YOUR_API_KEY')
 
 def generate_response(query):
