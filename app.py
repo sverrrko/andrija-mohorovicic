@@ -6,27 +6,28 @@ app = Flask(__name__)
 palm.configure(api_key='AIzaSyBIGETjjp18ap_9kc5_R4FI_O7eFQUkBlc')
 
 def generate_response(query):
+def generate_response(query):
     try:
-        
+
         response = palm.chat(
             model="models/chat-bison-001", 
-            messages=[{"role": "user", "content": query}],  
+            messages=[{"role": "user", "content": query}],
         )
         
+
+        print("Full API Response:", response)
+
        
         if 'candidates' in response and len(response['candidates']) > 0:
             return response['candidates'][0]['content']
         else:
-            return "U moje vrijeme se nismo koristili ovakvim riječnikom, pokušaj ponovo."
-    except AttributeError as e:
-        print(f"AttributeError occurred: {e}")
-        return "Došlo je do pogreške prilikom dohvaćanja odgovora. Molimo pokušajte ponovo."
-    except KeyError as e:
-        print(f"KeyError occurred: {e}")
-        return "Došlo je do pogreške u procesu odgovora. Molimo pokušajte ponovo."
+            print("No candidates found in the response.")
+            return "Nema odgovora na vaše pitanje. Molimo pokušajte ponovo."
+
     except Exception as e:
+    
         print(f"Error occurred: {e}")
-        return "Došlo je do pogreške prilikom generiranja odgovora."
+        return "Došlo je do pogreške prilikom generiranja odgovora. Molimo pokušajte ponovo."
 
 @app.route("/", methods=["GET", "POST"])
 def index():
