@@ -1,12 +1,10 @@
-from flask import Flask, render_template, request
-from gemini import Gemini
 
 from flask import Flask, render_template, request
-import palm
+import google.generativeai as palm
 
 app = Flask(__name__)
 
-palm.configure(api_key='YOUR_API_KEY')
+palm.configure(api_key='AIzaSyBIGETjjp18ap_9kc5_R4FI_O7eFQUkBlc')
 
 def generate_response(query):
 
