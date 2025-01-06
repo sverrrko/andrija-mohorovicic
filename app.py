@@ -8,7 +8,6 @@ if __name__ == '__main__':
 
 def get_response(user_input):
     user_input = user_input.lower()
-    
     if "tko je andrija mohorovičić" in user_input or "andrija mohorovičić" in user_input:
         return "To sam ja! Bio sam hrvatski seizmolog, najpoznatiji po otkriću Mohorovičićeve diskontinuiteta. "
     
@@ -87,7 +86,4 @@ def home():
         print(response)
     return render_template('index.html', response=response)
 
-
-def get_response(user_input):
-    user_input = user_input.lower()
 
