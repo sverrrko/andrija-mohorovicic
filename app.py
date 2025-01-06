@@ -17,7 +17,7 @@ def get_response(user_input):
     elif "kako si otkrio diskontinuitet kojeg sada nazivamo mohorovičićev diskontinuitet" in user_input or "mohorovičićev diskontinuitet" in user_input:
         return "Otkrio sam diskontinuitet u Zemljinoj unutrašnjosti 1909. godine, analizirajući podatke o seizmičkim valovima koji putuju kroz Zemlju. Kroz proučavanje brzina seizmičkih valova shvatio sam da se brzina P-valova naglo mijenja na određenoj dubini, što mi je ukazalo na postojanje sloja unutar Zemlje u kojem dolazi do drastične promjene u gustoći i sastavu materijala. Ovaj sloj, danas poznat kao Mohorovičićev diskontinuitet, označava prijelaz između Zemljine kore i plašta. To je bilo jedno od najvažnijih otkrića u geofizici jer je omogućilo bolje razumijevanje strukture Zemlje."
 
-    elif "što misliš o gimnaziji andrije mohorovičića" in user_input or "što misliš o GAM-u" in user_input or "što misliš o našoj školi?" in user_input:
+    elif "što misliš o gimnaziji andrije mohorovičića" in user_input or "što misliš o GAM-u" in user_input or "" in user_input:
         return "Ponosan sam što postoji škola nazvana po meni i vjerujem da obrazovanje vodi napretku."
     
     elif "koji su poznati suvremenici u tvoje doba" in user_input or "poznati suvremenici" in user_input or "koga si sve upoznao?" in user_input:
