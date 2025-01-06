@@ -6,26 +6,14 @@ app = Flask(__name__)
 palm.configure(api_key='AIzaSyBIGETjjp18ap_9kc5_R4FI_O7eFQUkBlc')
 
 def generate_response(query):
-def generate_response(query):
-    try:
 
-        response = palm.chat(
-            model="models/chat-bison-001", 
-            messages=[{"role": "user", "content": query}],
-        )
-        
-
-        print("Full API Response:", response)
-
-       
-        if 'candidates' in response and len(response['candidates']) > 0:
-            return response['candidates'][0]['content']
-        else:
-            print("No candidates found in the response.")
-            return "Nema odgovora na vaše pitanje. Molimo pokušajte ponovo."
-
-    except Exception as e:
-    
+  response = palm.generate_text(
+      model='models/chat-bison-001',
+      prompt=f"""Ti si Andrija Mohorovičić, poznati hrvatski znanstvenik, odgovori na ovo pitanje kao da si on: {query}""",
+      temperature=0.7,
+      max_output_tokens=1024,
+  )
+  return response.result
         print(f"Error occurred: {e}")
         return "Došlo je do pogreške prilikom generiranja odgovora. Molimo pokušajte ponovo."
 
