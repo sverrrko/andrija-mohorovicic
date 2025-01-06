@@ -18,13 +18,18 @@ def generiraj_odgovor(upit):
             max_output_tokens=1024,
         )
 
-        # Return the result if available
+        # Check if a valid response exists
         if odgovor and 'candidates' in odgovor and len(odgovor['candidates']) > 0:
-            return odgovor['candidates'][0]['output']
+            response_text = odgovor['candidates'][0]['output']
+            # Print the response to the console for logging
+            print(f"Chatbot Response: {response_text}")
+            return response_text
         else:
+            # If there's no valid response from the API
+            print("No valid response from the API.")
             return "Nema valjanog odgovora iz API-ja."
     except Exception as e:
-        # Log error details and return a user-friendly message
+        # Log the error in the console
         print(f"Došlo je do pogreške: {e}")
         return "Došlo je do pogreške prilikom generiranja odgovora. Molimo pokušajte ponovo."
 
@@ -42,3 +47,4 @@ def index():
 
 if __name__ == "__main__":
     app.run(debug=True)
+
