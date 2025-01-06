@@ -3,31 +3,38 @@ import google.generativeai as palm
 
 app = Flask(__name__)
 
-# Konfiguracija API ključa
-palm.configure(api_key='YOUR_API_KEY')
+palm.configure(api_key='AIzaSyBIGETjjp18ap_9kc5_R4FI_O7eFQUkBlc')
 
 def generate_response(query):
     try:
-
         response = palm.chat(
             model="models/chat-bison-001", 
             messages=[{"role": "user", "content": query}],  
         )
-        return response['candidates'][0]['content'] 
+        
+        print("API Response:", response)
+        if 'candidates' in response and len(response['candidates']) > 0:
+            return response['candidates'][0]['content']
+        else:
+            return "No valid response received."
     except Exception as e:
         print(f"Error generating response: {e}")
         return "Došlo je do pogreške prilikom generiranja odgovora."
+
 
 @app.route("/", methods=["GET", "POST"])
 def index():
     response = None
     if request.method == "POST":
-        query = request.form.get("query")  
+        query = request.form.get("query")
+        print(f"Received query: {query}") 
+        
         if query:
-            response = generate_response(query) 
+            response = generate_response(query)
         else:
             response = "Nema upita."
     return render_template("index.html", response=response)
+
 
 if __name__ == "__main__":
     import os
