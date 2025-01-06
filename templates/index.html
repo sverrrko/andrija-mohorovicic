@@ -7,24 +7,27 @@
     <link rel="stylesheet" href="static/style.css">
 </head>
 <body>
-    <h1>Dobrodošli u razgovor s Andrijem Mohorovičićem!</h1>
+    <h1>Dobrodošli u razgovor s Andrijom Mohorovičićem!</h1>
     <div class="content">
+
         <form method="POST">
-            <label for="upit">Postavite pitanje:</label><br>
-            <input type="text" id="upit" name="upit" placeholder="Postavite pitanje..." required><br><br>
+            <label for="query">Postavite pitanje:</label><br>
+            <input type="text" id="query" name="query" placeholder="Postavite pitanje..." required><br><br>
             <input type="submit" value="Pošaljite">
         </form>
+        
         <img id="andrija_image" src="https://github.com/sverrrko/andrija-mohorovicic/blob/d9f7f89c69062b45fb6f92cae3dc4770d9a9d2fc/templates/images/andrija_mohorovicic.png" alt="Andrija Mohorovičić">
     </div>
+
     {% if odgovor %}
     <div>
         <h3>Odgovor:</h3>
         <p><strong>Andrija Mohorovičić:</strong> {{ odgovor }}</p>
     </div>
     {% endif %}
+    
     <footer>
         <p>&copy; 2025 Pričaj s Andrijom Mohorovičićem</p>
     </footer>
 </body>
 </html>
-
