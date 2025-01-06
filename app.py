@@ -3,7 +3,6 @@ import google.generativeai as palm
 
 app = Flask(__name__)
 
-# Konfigurirajte Gemini API
 palm.configure(api_key='AIzaSyBIGETjjp18ap_9kc5_R4FI_O7eFQUkBlc')
 
 def generiraj_odgovor(upit):
