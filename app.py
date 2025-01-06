@@ -4,7 +4,7 @@ import google.generativeai as palm
 app = Flask(__name__)
 
 # Configure the Gemini API
-palm.configure(api_key=AIzaSyBIGETjjp18ap_9kc5_R4FI_O7eFQUkBlc)  # Replace 'YOUR_API_KEY' with your actual API key
+palm.configure(api_key='AIzaSyBIGETjjp18ap_9kc5_R4FI_O7eFQUkBlc')  # Replace 'YOUR_API_KEY' with your actual API key
 
 def generiraj_odgovor(upit):
     """Generira odgovor od Gemini API-ja."""
