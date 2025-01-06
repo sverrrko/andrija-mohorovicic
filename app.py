@@ -6,15 +6,16 @@ app = Flask(__name__)
 palm.configure(api_key='AIzaSyBIGETjjp18ap_9kc5_R4FI_O7eFQUkBlc')
 
 def generate_response(query):
-
-  response = palm.generate_text(
-      model='models/chat-bison-001',
-      prompt=f"""Ti si Andrija Mohorovičić, poznati hrvatski znanstvenik, odgovori na ovo pitanje kao da si on: {query}""",
-      temperature=0.7,
-      max_output_tokens=1024,
-  )
-  return response.result
-        print(f"Error occurred: {e}")
+    try:
+        response = palm.generate_text(
+            model='models/chat-bison-001',
+            prompt=f"""Ti si Andrija Mohorovičić, poznati hrvatski znanstvenik, odgovori na ovo pitanje kao da si on: {query}""",
+            temperature=0.7,
+            max_output_tokens=1024,
+        )
+        return response.result
+    except Exception as e:
+        print(f"Error occurred: {e}") 
         return "Došlo je do pogreške prilikom generiranja odgovora. Molimo pokušajte ponovo."
 
 @app.route("/", methods=["GET", "POST"])
