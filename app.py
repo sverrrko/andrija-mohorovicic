@@ -15,15 +15,15 @@ def generiraj_odgovor(upit):
         max_output_tokens=1024,
     )
 
-        print(f"Raw API response: {odgovor}")
+    print(f"Raw API response: {odgovor}")
 
-        if odgovor and 'candidates' in odgovor and len(odgovor['candidates']) > 0:
-            response_text = odgovor['candidates'][0]['output']
-            print(f"Chatbot Response: {response_text}")
-            return response_text
-        else:
-            print("No valid response from the API.")
-            return "No valid response from the API."
+    if odgovor and 'candidates' in odgovor and len(odgovor['candidates']) > 0:
+        response_text = odgovor['candidates'][0]['output']
+        print(f"Chatbot Response: {response_text}")
+        return response_text
+    else:
+        print("No valid response from the API.")
+        return "No valid response from the API."
 @app.route("/", methods=["GET", "POST"])
 def index():
     """Displays the chatbot interface and handles user queries."""
