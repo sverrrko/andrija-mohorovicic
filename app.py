@@ -7,7 +7,6 @@ app = Flask(__name__)
 palm.configure(api_key=os.getenv('AIzaSyBIGETjjp18ap_9kc5_R4FI_O7eFQUkBlc'))
 
 def generiraj_odgovor(upit):
-    """Generates a response from the Gemini API."""
     print(f"Generating response for query: {upit}")
     try:
         odgovor = palm.generate_text(
