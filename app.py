@@ -7,14 +7,13 @@ palm.configure(api_key='AIzaSyBIGETjjp18ap_9kc5_R4FI_O7eFQUkBlc')
 
 def generiraj_odgovor(upit):
     """Generates a response from the Gemini API."""
-    try:
-        print(f"Generating response for query: {upit}")
-        odgovor = palm.generate_text(
-            model='models/chat-bison-001',
-            prompt=f"""Ti si Andrija Mohorovičić, hrvatski znanstvenik i seizmolog, odgovori na slijedeće pitanje kao da si on: {upit}""",
-            temperature=0.7,
-            max_output_tokens=1024,
-        )
+    print(f"Generating response for query: {upit}")
+    odgovor = palm.generate_text(
+        model='models/chat-bison-001',
+        prompt=f"""Ti si Andrija Mohorovičić, hrvatski znanstvenik i seizmolog, odgovori na slijedeće pitanje kao da si on: {upit}""",
+        temperature=0.7,
+        max_output_tokens=1024,
+    )
 
         print(f"Raw API response: {odgovor}")
 
