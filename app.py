@@ -11,8 +11,7 @@ def generiraj_odgovor(upit):
         print(f"Generating response for query: {upit}")
         odgovor = palm.generate_text(
             model='models/chat-bison-001',
-            prompt=f"""You are Andrija Mohorovičić, a renowned Croatian scientist.
-            Respond to the following question as if you were him: {upit}""",
+            prompt=f"""Ti si Andrija Mohorovičić, hrvatski znanstvenik i seizmolog, odgovori na slijedeće pitanje kao da si on: {upit}""",
             temperature=0.7,
             max_output_tokens=1024,
         )
