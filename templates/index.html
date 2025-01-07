@@ -15,7 +15,7 @@
             <input type="submit" value="Pošaljite">
         </form>
         
-        <img id="andrija_image" src="https://github.com/sverrrko/andrija-mohorovicic/blob/main/templates/images/andrija_mohorovicic.png " alt="Andrija Mohorovičić">
+        <img id="andrija_image" src="{{ url_for('static', filename='images/andrija_mohorovicic.png') }}" alt="Andrija Mohorovičić">
     </div>
 
     {% if response %}
