@@ -38,7 +38,9 @@ def index():
             odgovor = generiraj_odgovor(upit)
         else:
             odgovor = "Molimo unesite upit."
-    return render_template("index.html", odgovor=odgovor)
+    return render_template("index.html", response=odgovor)
+    print(f"User query: {upit}")
+    print(f"Response being passed to template: {odgovor}")
 
 if __name__ == "__main__":
     app.run(debug=True)
