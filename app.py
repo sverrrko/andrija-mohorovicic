@@ -10,9 +10,12 @@ def generiraj_odgovor(upit):
     """Generate a response using the Gemini API."""
     print(f"Generating response for query: {upit}")
     try:
-        odgovor = palm.generate_text(
+        odgovor = palm.chat(
             model='models/chat-bison-001',
-            prompt=f"Ti si Andrija Mohorovičić, hrvatski znanstvenik i seizmolog, odgovori na slijedeće pitanje kao da si on: {upit}",
+            messages=[
+                {"role": "system", "content": "Ti si Andrija Mohorovičić, hrvatski znanstvenik i seizmolog."},
+                {"role": "user", "content": upit}
+            ],
             temperature=0.7,
             max_output_tokens=1024,
         )
@@ -21,7 +24,6 @@ def generiraj_odgovor(upit):
         print(f"Error during API request: {e}")
         return f"An error occurred: {e}"
 
-    # Validate response structure
     if odgovor and isinstance(odgovor, dict) and 'candidates' in odgovor:
         candidates = odgovor.get('candidates', [])
         if isinstance(candidates, list) and len(candidates) > 0:
