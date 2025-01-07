@@ -30,7 +30,6 @@ def generiraj_odgovor(upit):
 
 @app.route("/", methods=["GET", "POST"])
 def index():
-    """Displays the chatbot interface and handles user queries."""
     odgovor = None
     if request.method == "POST":
         upit = request.form.get("query", "").strip()
