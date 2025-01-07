@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="static/style.css">
 </head>
 <body>
-    <h1>Dobrodošli u razgovor s Andrijom Mohorovičićem!</h1>
+    <h1>Razgovor s Andrijom Mohorovičićem</h1>
     <div class="content">
         <form method="POST">
             <label for="query">Postavite pitanje:</label><br>
@@ -19,6 +19,9 @@
     </div>
 
     {% if response %}
+    <script>
+        console.log("Andrija Mohorovičić: {{ response | tojson | safe }}");
+    </script>
     <div>
         <h3>Odgovor:</h3>
         <p><strong>Andrija Mohorovičić:</strong> {{ response }}</p>
