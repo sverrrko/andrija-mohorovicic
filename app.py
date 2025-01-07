@@ -25,10 +25,6 @@ def generiraj_odgovor(upit):
         else:
             print("No valid response from the API.")
             return "No valid response from the API."
-    except Exception as e:
-        print(f"Error occurred while generating response: {e}")
-        return "An error occurred while generating the response. Please try again."
-
 @app.route("/", methods=["GET", "POST"])
 def index():
     """Displays the chatbot interface and handles user queries."""
