@@ -1,41 +1,38 @@
 from flask import Flask, render_template, request
-import google.generativeai as palm
+import google.generativeai as genai  
 import os
 
 app = Flask(__name__)
 
-palm.configure(api_key='AIzaSyBIGETjjp18ap_9kc5_R4FI_O7eFQUkBlc') 
+genai.configure(api_key = 'AIzaSyBIGETjjp18ap_9kc5_R4FI_O7eFQUkBlc')
+
+model = genai.GenerativeModel("gemini-1.5-flash") 
 
 def generiraj_odgovor(upit):
-    """Generate a response using the Gemini API."""
+    """Generira odgovor od Gemini API-ja."""
     print(f"Generating response for query: {upit}")
     try:
-        odgovor = palm.chat(
-            model='models/chat-bison-001',
-            messages=[
-                {"role": "system", "content": "Ti si Andrija Mohorovičić, hrvatski znanstvenik i seizmolog."},
-                {"role": "user", "content": upit}
-            ],
-            temperature=0.7,
-            max_output_tokens=1024,
+        response = model.generate_content(
+            f"""Ti si Andrija Mohorovičić, hrvatski znanstvenik i seizmolog. Odgovori u njegovom stilu. Nemoj koristiti rodne oznake u razgovoru jer ne znaš da l ipričaš sa djevojkom ili mladićem.
+            Korisnički upit: {upit}"""
         )
-        print(f"Raw API response: {odgovor}")
+        print(f"Raw API response: {response}")
+        
     except Exception as e:
         print(f"Error during API request: {e}")
-        return f"An error occurred: {e}"
+        return "Error during request"
 
-    if odgovor and isinstance(odgovor, dict) and 'candidates' in odgovor:
-        candidates = odgovor.get('candidates', [])
-        if isinstance(candidates, list) and len(candidates) > 0:
-            response_text = candidates[0].get('output', 'No output provided')
-            print(f"Chatbot Response: {response_text}")
-            return response_text
-    print("No valid response from the API.")
-    return "No valid response from the API."
+    if response and response.text: 
+        response_text = response.text
+        print(f"Chatbot Response: {response_text}")
+        return response_text
+    else:
+        print("No valid response from the API.")
+        return "No valid response from the API."
 
 @app.route("/", methods=["GET", "POST"])
 def index():
-    """Displays the chatbot interface and handles user queries."""
+    """Prikazuje chatbot sučelje i obrađuje korisničke upite."""
     odgovor = None
     if request.method == "POST":
         upit = request.form.get("query", "").strip()
