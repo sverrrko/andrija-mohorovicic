@@ -23,10 +23,11 @@
         const response = {{ response | tojson | safe }};
         console.log("Andrija Mohorovičić responded:", response);
     </script>
-    <div>
-        <h3>Odgovor:</h3>
-        <p><strong>Andrija Mohorovičić:</strong> {{ response }}</p>
+    <div id="chatbox">
+    <div class="response-container"> 
+        <p class="message"><strong>Andrija Mohorovičić:</strong> <br>{{ response }}</p>
     </div>
+</div>
     {% endif %}
     
     <footer>
